@@ -9,8 +9,8 @@ defmodule OAuth2Example.Mixfile do
      compilers: [:phoenix] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps,
-     aliases: aliases]
+     deps: deps(),
+     aliases: aliases()]
   end
 
   # Configuration for the OTP application
@@ -35,16 +35,16 @@ defmodule OAuth2Example.Mixfile do
   #
   # Type `mix help deps` for examples and options
   defp deps do
-    [{:phoenix, "~> 1.2.1"},
-     {:phoenix_pubsub, "~> 1.0"},
-     {:phoenix_ecto, "~> 3.0"},
-     {:ecto_sql, ">=0.0.0"},
-     {:postgrex, ">= 0.14.0"},
-     {:phoenix_html, "~> 2.6"},
-     {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:gettext, "~> 0.11"},
-     {:cowboy, "~> 1.0"},
-     {:plug_cowboy, ">=0.0.0"},
-     {:oauth2, "~> 0.9"}]
+    [{:phoenix, "~> 1.4.10"},
+     {:phoenix_pubsub, "~> 1.1"},
+     {:phoenix_ecto, "~> 4.0"},
+     {:ecto_sql, "~>3.1"},
+     {:postgrex, ">= 0.0.0"},
+     {:phoenix_html, "~> 2.13.3"},
+     {:gettext, "~> 0.17.0"},
+     {:plug_cowboy, "~> 2.0"},
+     {:oauth2, "~> 2.0"},
+     {:poison, "~> 4.0.1"}
+    ]
   end
 end

@@ -1,7 +1,9 @@
 defmodule OAuth2Example.Endpoint do
   use Phoenix.Endpoint, otp_app: :oauth2_example
 
-  socket "/socket", OAuth2Example.UserSocket
+  socket "/socket", OAuth2Example.UserSocket,
+    websocket: true,
+    longpoll: false
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -10,14 +12,6 @@ defmodule OAuth2Example.Endpoint do
   plug Plug.Static,
     at: "/", from: :oauth2_example, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
-
-  # Code reloading can be explicitly enabled under the
-  # :code_reloader configuration of your endpoint.
-  if code_reloading? do
-    socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
-    plug Phoenix.LiveReloader
-    plug Phoenix.CodeReloader
-  end
 
   plug Plug.RequestId
   plug Plug.Logger
